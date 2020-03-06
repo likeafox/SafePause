@@ -3,7 +3,7 @@
   <name>Safe Pause</name>
   <author>likeafox</author>
   <packageId>likeafox.rimworld.safepause</packageId>
-  <!--<url>http://example.com</url>-->
+  <url>https://github.com/likeafox/SafePause</url>
   <supportedVersions>
     <li>1.0</li>
     <li>1.1</li>
