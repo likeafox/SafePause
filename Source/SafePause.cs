@@ -1,8 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+#if HARMONY_1_2
 using Harmony;
+#elif HARMONY_2_0
+using HarmonyLib;
+#endif
 using Verse;
 using RimWorld;
 using System.Diagnostics;
@@ -48,7 +49,12 @@ namespace SafePause
         public SafePause(ModContentPack content) : base(content)
         {
             GetSettings<SafePauseSettings>();
-            var harmony = HarmonyInstance.Create("likeafox.rimworld.safepause");
+            string mod_id = "likeafox.rimworld.safepause";
+#if HARMONY_1_2
+            var harmony = HarmonyInstance.Create(mod_id);
+#elif HARMONY_2_0
+            var harmony = new Harmony(mod_id);
+#endif
             harmony.PatchAll(System.Reflection.Assembly.GetExecutingAssembly());
         }
 
